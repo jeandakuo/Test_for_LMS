@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  ttyd-server:
+    build: 
+        context: ./src
+        args:
+            FLAG: ${FLAG}
+    cpus: 1.0
+    pids_limit: 100
+    mem_limit: 64M
+    read_only: true
+    stop_grace_period: 0s
+    tmpfs:
+      - /tmp:size=16k
+    ports:
+      - 8080:80
+    
